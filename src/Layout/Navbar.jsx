@@ -4,10 +4,25 @@ import { FaArrowRightToBracket } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
 import MenuItem from "./MenuItem";
 import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const menuItems = <MenuItem></MenuItem>;
-  const { user } = useAuth();
+  const { user, logoutUser, setUser } = useAuth();
+
+  const handleLogout = () => {
+    const toastId = toast.loading("Sign Outing...");
+    logoutUser()
+      .then(() => {
+        // Sign-out successful.
+        setUser();
+        toast.success("Sign Out Successfully!", { id: toastId });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        toast.error(errorCode, { id: toastId });
+      });
+  };
 
   return (
     <div className=" top-o z-50 h-fit inset-0 border border-white/80 bg-white bg-opacity-80 shadow-md backdrop-blur-2xl backdrop-saturate-200 ">
@@ -72,7 +87,7 @@ const Navbar = () => {
                       </Link>
                     </div>
                     <div
-                      //   onClick={handleLogout}
+                      onClick={handleLogout}
                       className="flex items-center justify-center gap-2 text-lg text-red-400 hover:text-red-500 hover:cursor-pointer">
                       <p>Sign out</p>
                       <FaArrowRightToBracket></FaArrowRightToBracket>

@@ -10,6 +10,7 @@ import useAuth from "../../Hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import auth from "../../firebaseConfiq/firebase.confiq";
 import toast from "react-hot-toast";
+import GoogleSignIn from "../../Components/GoogleSingIn";
 const image_bb_API = import.meta.env.VITE_IMAGE_API;
 const image_hosting_API = `https://api.imgbb.com/1/upload?key=${image_bb_API}`;
 
@@ -202,7 +203,7 @@ const SignUp = () => {
               </form>
               <div className="px-6 -mt-6">
                 <div className="divider">OR</div>
-                {/* TODo */}
+                <GoogleSignIn></GoogleSignIn>
                 <div className="flex justify-center items-center gap-2">
                   <p className="dark:text-white my-4 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
                     Have an account?

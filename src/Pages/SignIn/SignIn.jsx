@@ -6,6 +6,7 @@ import loginAnimation from "../../assets/Lottie_Animation/loginPage.json";
 import Lottie from "lottie-react";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import GoogleSignIn from "../../Components/GoogleSingIn";
 
 const SignIn = () => {
   const {
@@ -96,7 +97,7 @@ const SignIn = () => {
               </form>
               <div className="px-6 -mt-6">
                 <div className="divider">OR</div>
-                {/* Todo */}
+                <GoogleSignIn></GoogleSignIn>
                 <div className="flex justify-center items-center gap-2">
                   <p className="dark:text-white my-4 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
                     Don't have an account?
