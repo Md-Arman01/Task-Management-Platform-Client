@@ -38,7 +38,7 @@ const SignIn = () => {
 
   return (
     <Container>
-      <div className="flex flex-col lg:flex-row items-center justify-evenly ">
+      <div className="flex flex-col lg:flex-row items-center justify-between">
         <div className="mt-24">
           <Lottie animationData={loginAnimation} className="w-[700px]"></Lottie>
         </div>

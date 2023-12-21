@@ -5,6 +5,7 @@ import { FiMenu } from "react-icons/fi";
 import MenuItem from "./MenuItem";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import logo from "../../public/logo.png"
 
 const Navbar = () => {
   const menuItems = <MenuItem></MenuItem>;
@@ -44,9 +45,10 @@ const Navbar = () => {
               <div className="hover:cursor-pointer flex flex-col items-center">
                 <img
                   className="w-16"
-                  src="https://i.ibb.co/Ss8PzDH/Pi7-Image-young-happy-man-standing-isolated.jpg"
+                  src={logo}
                   alt=""
                 />
+                <h1 className="font-bold font-mono text-lg -mt-2">TaskWorld</h1>
               </div>
             </Link>
           </div>

@@ -5,6 +5,10 @@ import About from "../Pages/About/About";
 import Contact from "../Pages/Contact/Contact";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SingUp/SignUp";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+import CreateTask from "../Pages/Dashboard/CreateTask";
+import SeeTask from "../Pages/Dashboard/SeeTask";
+import ManageTask from "../Pages/Dashboard/ManageTask";
 
 const Router = createBrowserRouter([
   {
@@ -30,6 +34,24 @@ const Router = createBrowserRouter([
       {
         path: "/sign_up",
         element: <SignUp></SignUp>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <CreateTask></CreateTask>,
+      },
+      {
+        path: "/dashboard/see_task",
+        element: <SeeTask></SeeTask>,
+      },
+      {
+        path: "/dashboard/manage_task",
+        element: <ManageTask></ManageTask>,
       },
     ],
   },

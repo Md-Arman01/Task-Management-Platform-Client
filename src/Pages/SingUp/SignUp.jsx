@@ -67,7 +67,7 @@ const SignUp = () => {
 
   return (
     <Container>
-      <div className="flex flex-col-reverse lg:flex-row  items-center justify-evenly">
+      <div className="flex flex-col-reverse lg:flex-row  items-center justify-between">
         <div>
           <div className=" flex justify-center mt-14 md:mt-20 lg:mt-28 px-5 md:px-0 w-[400px]">
             <div className=" relative flex w-full  md:w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
