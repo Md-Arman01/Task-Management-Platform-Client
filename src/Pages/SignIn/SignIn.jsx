@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "../../Components/Container";
 import loginAnimation from "../../assets/Lottie_Animation/loginPage.json";
 import Lottie from "lottie-react";
+import useAuth from "../../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
   const {
@@ -11,9 +13,26 @@ const SignIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { loginUser } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const toastId = toast.loading("Sign In...");
+
+    const email = data?.email;
+    const password = data?.password;
+
+    loginUser(email, password)
+      .then((userCredential) => {
+        toast.success("Sign In Successfully!", { id: toastId });
+        const user = userCredential.user;
+        navigate("/");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        toast.error(errorCode, { id: toastId });
+      });
   };
 
   return (

@@ -60,7 +60,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
+        toast.error(errorCode, { id: toastId });
       });
   };
 
