@@ -82,7 +82,7 @@ const Navbar = () => {
                       <hr />
                     </div>
                     <div>
-                      <Link to="/dashboard">
+                      <Link to="/dashboard/create_task">
                         <h1 className="text-lg font-medium hover:text-gray-600 hover:cursor-pointer">
                           Dashboard
                         </h1>

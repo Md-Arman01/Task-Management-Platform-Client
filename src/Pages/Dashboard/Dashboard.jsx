@@ -10,15 +10,33 @@ const Dashboard = () => {
             TaskWorld
           </h1>
           <p className="border-b-2 border-white w-full"> </p>
-          <div className="flex flex-col justify-start gap-5">
-            <NavLink to="/dashboard">
-              <button className="btn">Create New Task</button>
+          <div className="flex flex-col justify-start">
+            <NavLink
+              to="/dashboard/create_task"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl py-2 px-5 font-semibold bg-gradient-to-r from-[#FFA828] to-[#FF4804] text-transparent bg-clip-text"
+                  : "text-white text-xl font-semibold hover:bg-gray-500 py-2 px-5 rounded-md"
+              }>
+              Create New Task
             </NavLink>
-            <NavLink to="/dashboard/see_task">
-              <button className="btn">See Previous Task</button>
+            <NavLink
+              to="/dashboard/see_task"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl py-2 px-5 font-semibold bg-gradient-to-r from-[#FFA828] to-[#FF4804] text-transparent bg-clip-text"
+                  : "text-white text-xl font-semibold hover:bg-gray-500 py-2 px-5 rounded-md"
+              }>
+              See Previous Task
             </NavLink>
-            <NavLink to="/dashboard/manage_task">
-              <button className="btn">Manage Task</button>
+            <NavLink
+              to="/dashboard/manage_task"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl py-2 px-5 font-semibold bg-gradient-to-r from-[#FFA828] to-[#FF4804] text-transparent bg-clip-text"
+                  : "text-white text-xl font-semibold hover:bg-gray-500 py-2 px-5 rounded-md"
+              }>
+              Manage Task
             </NavLink>
           </div>
         </div>
