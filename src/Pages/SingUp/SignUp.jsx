@@ -1,11 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
 import Container from "../../Components/Container";
 import loginAnimation from "../../assets/Lottie_Animation/loginPage.json";
 import Lottie from "lottie-react";
+import useAuth from "../../Hooks/useAuth";
+import { updateProfile } from "firebase/auth";
+import auth from "../../firebaseConfiq/firebase.confiq";
+import toast from "react-hot-toast";
 const image_bb_API = import.meta.env.VITE_IMAGE_API;
 const image_hosting_API = `https://api.imgbb.com/1/upload?key=${image_bb_API}`;
 
@@ -16,8 +20,12 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { createUser, setUser } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    const toastId = toast.loading("Sign Up...");
+
     const name = data?.name;
     const email = data?.email;
     const password = data?.password;
@@ -28,7 +36,32 @@ const SignUp = () => {
       },
     });
     const image = res?.data?.data?.display_url;
-    console.log(name, email, password, image);
+
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: image,
+        })
+          .then(() => {
+            setUser({
+              ...auth.currentUser,
+              displayName: name,
+              photoURL: image,
+            });
+            navigate("/");
+            toast.success("Sign Up Successfully!", { id: toastId });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        console.log(errorCode);
+      });
   };
 
   return (
