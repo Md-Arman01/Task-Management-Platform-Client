@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "../Components/Container";
 import { FiMenu } from "react-icons/fi";
 import MenuItem from "./MenuItem";
@@ -29,9 +29,6 @@ const Navbar = () => {
                   src="https://i.ibb.co/Ss8PzDH/Pi7-Image-young-happy-man-standing-isolated.jpg"
                   alt=""
                 />
-                <h1 className="text-2xl font-Rancho font-semibold -mt-3">
-                  Travelia
-                </h1>
               </div>
             </Link>
           </div>
@@ -41,7 +38,15 @@ const Navbar = () => {
               <div>{menuItems}</div>
             </ul>
           </div>
-          {/* Todo */}
+          <div className="navbar-end gap-2">
+              <NavLink to="/sign_in">
+                <button
+                  className="hover:rounded-3xl duration-700 hover:duration-150 font-serif block w-full select-none rounded-lg bg-black py-2 px-8 text-center align-middle font-Rancho text-xl  text-white shadow-md shadow-[#000000]/20 transition-all hover:shadow-lg hover:shadow-[#000000]/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                  data-ripple-light="true">
+                  Sign In
+                </button>
+              </NavLink>
+          </div>
         </div>
       </Container>
     </div>

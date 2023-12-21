@@ -8,8 +8,8 @@ const MenuItem = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FF4804] underline underline-offset-8 text-lg font-medium"
-              : "text-lg font-medium hover:scale-110 hover:transition-all  hover:text-[#FF4804] hover:underline hover:underline-offset-8"
+              ? "underline underline-offset-8 text-lg font-medium"
+              : "text-lg font-medium hover:scale-110 duration-1000 hover:duration-1000 hover:transition-all  text-gray-500 hover:underline hover:underline-offset-8"
           }>
           Home
         </NavLink>
@@ -17,8 +17,8 @@ const MenuItem = () => {
           to="/about_us"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FF4804] underline underline-offset-8 text-lg font-medium"
-              : "text-lg font-medium hover:scale-110 hover:transition-all  hover:text-[#FF4804] hover:underline hover:underline-offset-8"
+              ? "underline underline-offset-8 text-lg font-medium"
+              : "text-lg font-medium hover:scale-110 duration-1000 hover:duration-1000 hover:transition-all  text-gray-500 hover:underline hover:underline-offset-8"
           }>
           About Us
         </NavLink>
@@ -26,8 +26,8 @@ const MenuItem = () => {
           to="/contact_us"
           className={({ isActive }) =>
             isActive
-              ? "text-[#FF4804] underline underline-offset-8 text-lg font-medium"
-              : "text-lg font-medium hover:scale-110 hover:transition-all hover:text-[#FF4804] hover:underline hover:underline-offset-8"
+              ? " underline underline-offset-8 text-lg font-medium"
+              : "text-lg font-medium hover:scale-110 duration-1000 hover:duration-1000 hover:transition-all  text-gray-500 hover:underline hover:underline-offset-8"
           }>
           Contact Us
         </NavLink>
