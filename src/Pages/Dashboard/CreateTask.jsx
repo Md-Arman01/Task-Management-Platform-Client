@@ -35,7 +35,7 @@ const CreateTask = () => {
   return (
     <>
       <div>
-        <h1 className="text-center mb-10 md:my-10 text-3xl md:text-5xl font-semibold font-Rancho border-y-4 mx-auto border-dashed w-fit py-4">
+        <h1 className="text-center mb-10 md:my-10 text-3xl md:text-5xl font-semibold font-serif border-y-4 mx-auto border-dashed w-fit py-4">
           Create Task
         </h1>
       </div>
