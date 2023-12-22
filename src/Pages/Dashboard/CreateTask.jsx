@@ -1,4 +1,7 @@
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import toast from "react-hot-toast";
+import useAuth from "../../Hooks/useAuth";
 
 const CreateTask = () => {
   const {
@@ -7,9 +10,27 @@ const CreateTask = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const axiosPublic = useAxiosPublic();
+  const { user } = useAuth();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    const toastId = toast.loading("Creating Task...");
+
+    const taskInfo = {
+      title: data?.title,
+      description: data?.description,
+      datelines: data?.datelines,
+      priority: data?.priority,
+      status: "to-do",
+      user_email: user?.email,
+      user_image: user?.photoURL,
+    };
+    axiosPublic.post("/task", taskInfo).then((res) => {
+      if (res?.data?.insertedId) {
+        reset();
+        toast.success("Task Creating Successfully!", { id: toastId });
+      }
+    });
   };
   return (
     <>
@@ -18,9 +39,9 @@ const CreateTask = () => {
           Create Task
         </h1>
       </div>
-      <div className="bg-[#F6F6F6] p-8 md:p-10 lg:p-20 rounded-xl">
+      <div className="bg-[#F6F6F6] p-8 md:p-10 lg:px-20 lg:py-40 rounded-xl">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* 1 */}
             <div>
               <div className="relative h-11 w-full min-w-[200px]">
