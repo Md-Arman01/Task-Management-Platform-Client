@@ -98,7 +98,7 @@ const About = () => {
               </div>
               <div className="relative p-6 px-6 py-14 md:px-12">
                 <h2 className="mb-1 block font-sans text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
-                  Mila Rodriguez
+                  Mila
                 </h2>
                 <h5 className="block mb-4 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-gray-400">
                   Manager

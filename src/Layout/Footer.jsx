@@ -18,7 +18,7 @@ const Footer = () => {
               <h1 className="font-bold font-mono text-lg -mt-2">TaskWorld</h1>
             </div>
             <p className="font-medium">
-            TaskWorld Industries Ltd. <br />
+              TaskWorld Industries Ltd. <br />
               Providing reliable tech since 1990
             </p>
           </aside>
@@ -74,7 +74,9 @@ const Footer = () => {
             </header>
             <div className="w-full">
               <div className="flex justify-center items-center gap-2">
-                <BsFacebook className="text-2xl text-[#2B92EA] hover:cursor-pointer hover:scale-110" />
+                <a href="https://www.facebook.com/profile.php?id=100023522562335">
+                  <BsFacebook className="text-2xl text-[#2B92EA] hover:cursor-pointer hover:scale-110" />
+                </a>
                 <FaTwitter className="text-2xl text-[#1AACF0] hover:cursor-pointer hover:scale-110" />
                 <AiFillInstagram className="text-3xl text-[#A43EB7] hover:cursor-pointer hover:scale-110" />
               </div>
