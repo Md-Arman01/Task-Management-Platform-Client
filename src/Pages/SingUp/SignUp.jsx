@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import axios from "axios";
@@ -23,6 +23,7 @@ const SignUp = () => {
   } = useForm();
   const { createUser, setUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSubmit = async (data) => {
     const toastId = toast.loading("Sign Up...");
@@ -52,7 +53,7 @@ const SignUp = () => {
               displayName: name,
               photoURL: image,
             });
-            navigate("/");
+            navigate(location?.state ? location?.state : "/");
             toast.success("Sign Up Successfully!", { id: toastId });
           })
           .catch((error) => {

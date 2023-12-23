@@ -35,7 +35,7 @@ const ManageTask = () => {
         <div className="bg-[#ff8989] p-8 md:p-10 rounded-xl">
           <div>
             <h1 className="text-4xl font-mono font-bold mb-5">To-Do:</h1>
-            <div className="space-y-3">
+            <div className="space-y-6">
               {toDoTask?.map((task) => (
                 <TaskCard
                   key={task?._id}

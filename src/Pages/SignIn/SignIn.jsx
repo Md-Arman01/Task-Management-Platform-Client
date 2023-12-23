@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Container from "../../Components/Container";
 import loginAnimation from "../../assets/Lottie_Animation/loginPage.json";
 import Lottie from "lottie-react";
@@ -16,6 +16,7 @@ const SignIn = () => {
   } = useForm();
   const { loginUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSubmit = (data) => {
     const toastId = toast.loading("Sign In...");
@@ -27,7 +28,7 @@ const SignIn = () => {
       .then((userCredential) => {
         toast.success("Sign In Successfully!", { id: toastId });
         const user = userCredential.user;
-        navigate("/");
+        navigate(location?.state ? location?.state : "/");
         console.log(user);
       })
       .catch((error) => {

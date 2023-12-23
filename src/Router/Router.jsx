@@ -9,6 +9,9 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import CreateTask from "../Pages/Dashboard/CreateTask";
 import SeeTask from "../Pages/Dashboard/SeeTask";
 import ManageTask from "../Pages/Dashboard/ManageTask";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdateTask from "../Components/UpdateTask";
+import Profile from "../Pages/Dashboard/Profile";
 
 const Router = createBrowserRouter([
   {
@@ -43,15 +46,39 @@ const Router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/create_task",
-        element: <CreateTask></CreateTask>,
+        element: (
+          <PrivateRoute>
+            <CreateTask></CreateTask>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/see_task",
-        element: <SeeTask></SeeTask>,
+        element: (
+          <PrivateRoute>
+            <SeeTask></SeeTask>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/manage_task",
-        element: <ManageTask></ManageTask>,
+        element: (
+          <PrivateRoute>
+            <ManageTask></ManageTask>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/update/:id",
+        element: <UpdateTask></UpdateTask>,
       },
     ],
   },

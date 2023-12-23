@@ -4,11 +4,11 @@ const Type = () => {
   return (
     <Container>
       <div>
-        <h1 className="text-2xl md:text-4xl font-bold text-center my-10">
+        <h1 className="text-2xl md:text-4xl font-bold text-center my-5 lg:my-10">
           Who People Using This Website
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-10 mt-10 lg:mt-20  px-5 lg:px-0">
         {/* 1 */}
         <div className="border p-5 hover:shadow-lg hover:scale-105 duration-500 relative flex w-full flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
           <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">

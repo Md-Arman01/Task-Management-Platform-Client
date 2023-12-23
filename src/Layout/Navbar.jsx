@@ -1,15 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Container from "../Components/Container";
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi";
 import MenuItem from "./MenuItem";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
-import logo from "../../public/logo.png"
+import logo from "../../public/logo.png";
 
 const Navbar = () => {
   const menuItems = <MenuItem></MenuItem>;
   const { user, logoutUser, setUser } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     const toastId = toast.loading("Sign Outing...");
@@ -17,6 +18,7 @@ const Navbar = () => {
       .then(() => {
         // Sign-out successful.
         setUser();
+        navigate("/");
         toast.success("Sign Out Successfully!", { id: toastId });
       })
       .catch((error) => {
@@ -43,11 +45,7 @@ const Navbar = () => {
             </div>
             <Link to="/">
               <div className="hover:cursor-pointer flex flex-col items-center">
-                <img
-                  className="w-16"
-                  src={logo}
-                  alt=""
-                />
+                <img className="w-16" src={logo} alt="" />
                 <h1 className="font-bold font-mono text-lg -mt-2">TaskWorld</h1>
               </div>
             </Link>
