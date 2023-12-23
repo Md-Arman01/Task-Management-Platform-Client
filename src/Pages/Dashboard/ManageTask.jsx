@@ -1,3 +1,4 @@
+import { useDrop } from "react-dnd";
 import TaskCard from "../../Components/TaskCard";
 import useAllTask from "../../Hooks/useAllTask";
 
@@ -6,6 +7,19 @@ const ManageTask = () => {
   const toDoTask = AllTask?.filter((task) => task?.status === "to-do");
   const onGoingTask = AllTask?.filter((task) => task?.status === "ongoing");
   const CompletedTask = AllTask?.filter((task) => task?.status === "completed");
+  
+
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: "todoList",
+    drop: (item) => addItemToSection(item.id),
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }));
+
+  const addItemToSection = (id) => {
+    console.log(id);
+  };
 
   return (
     <div>
@@ -14,7 +28,9 @@ const ManageTask = () => {
           Manage Task
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div
+        ref={drop}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {/* to-do list */}
         <div className="bg-[#ff8989] p-8 md:p-10 rounded-xl">
           <div>
@@ -23,6 +39,7 @@ const ManageTask = () => {
               {toDoTask?.map((task) => (
                 <TaskCard
                   key={task?._id}
+                  id={task?._id}
                   title={task?.title}
                   description={task?.description}
                   datelines={task?.datelines}
@@ -31,6 +48,7 @@ const ManageTask = () => {
             </div>
           </div>
         </div>
+
         {/* ongoing list */}
         <div className="bg-[#fdba92] p-8 md:p-10 rounded-xl">
           <div>
@@ -39,6 +57,7 @@ const ManageTask = () => {
               {onGoingTask?.map((task) => (
                 <TaskCard
                   key={task?._id}
+                  id={task?._id}
                   title={task?.title}
                   description={task?.description}
                   datelines={task?.datelines}
@@ -55,6 +74,7 @@ const ManageTask = () => {
               {CompletedTask?.map((task) => (
                 <TaskCard
                   key={task?._id}
+                  id={task?._id}
                   title={task?.title}
                   description={task?.description}
                   datelines={task?.datelines}
