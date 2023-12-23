@@ -36,7 +36,7 @@ const Contact = () => {
             </p>
             <div>
               {/* 1 */}
-              <div className="group flex items-center gap-5 w-fit hover:cursor-pointer mb-3 hover:translate-x-3 duration-1000">
+              <div className="group flex items-center gap-5 w-fit hover:cursor-pointer mb-3 hover:translate-x-3 duration-500">
                 <button className="btn bg-white border border-black">
                   <FaLocationDot className="text-lg group-hover:text-black" />
                 </button>
@@ -48,7 +48,7 @@ const Contact = () => {
                 </div>
               </div>
               {/* 2 */}
-              <div className="group flex items-center gap-5 w-fit hover:cursor-pointer mb-3 hover:translate-x-3 duration-1000">
+              <div className="group flex items-center gap-5 w-fit hover:cursor-pointer mb-3 hover:translate-x-3 duration-500">
                 <button className="btn bg-white border border-black">
                   <BiSolidPhoneCall className="text-lg group-hover:text-black" />
                 </button>
@@ -58,7 +58,7 @@ const Contact = () => {
                 </div>
               </div>
               {/* 3 */}
-              <div className="group flex items-center gap-5 w-fit hover:cursor-pointer mb-3 hover:translate-x-3 duration-1000">
+              <div className="group flex items-center gap-5 w-fit hover:cursor-pointer mb-3 hover:translate-x-3 duration-500">
                 <button className="btn bg-white border border-black">
                   <TbMailFilled className="text-lg group-hover:text-black" />
                 </button>
