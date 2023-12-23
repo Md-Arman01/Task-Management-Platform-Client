@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../../Components/Container";
 
 const Home = () => {
@@ -14,9 +15,13 @@ const Home = () => {
             management tools and techniques help individuals and teams
             streamline workflows, enhance productivity, and meet deadlines.
           </h1>
-          <button className="btn btn-outline bg-black hover:bg-white text-white hover:text-black">
-            {"Let's Explore"}
-          </button>
+          <div>
+            <Link to="/dashboard/create_task">
+              <button className="btn btn-outline bg-black hover:bg-white text-white hover:text-black">
+                {"Let's Explore"}
+              </button>
+            </Link>
+          </div>
         </div>
         <div>
           <img
